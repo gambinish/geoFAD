@@ -29,6 +29,8 @@
     var testLegend = L.control({
         position: 'topright'
     });
+
+
     testLegend.onAdd = function(map) {
         var src = testWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=gfs-temperature-isbl&STYLE=default";
         var div = L.DomUtil.create('div', 'info legend');
@@ -36,7 +38,8 @@
             '<img src="' + src + '" alt="legend">';
         return div;
     };
-    tempLayer.addLayer(testLegend);
+
+    testLegend.addTo(map)
 
     var htmlTemp = "<font color='black'> Temperature </font>"
     layerControl.addOverlay(tempLayer, htmlTemp)
