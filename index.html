@@ -4,12 +4,16 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="./node_modules/leaflet-velocity/dist/leaflet-velocity.css" />
-  <link rel="stylesheet" href="./node_modules/leaflet-velocity/Leaflet.Coordinates-0.1.5.css">
+  <link rel="stylesheet" href="./node_modules/leaflet.coordinates/dist/Leaflet.Coordinates-0.1.5.css">
+  <link rel="stylesheet" href="./node_modules/leaflet-timedimension/dist/leaflet.timedimension.control.min.css" />
   <link rel="stylesheet" href="./styles.css" />
-   <script src="./node_modules/leaflet/dist/leaflet.js"></script>
-   <script src="./node_modules/jquery/dist/jquery.js"></script>
-   <script src="./node_modules/leaflet-velocity/dist/leaflet-velocity.js"></script>
-   <script src="./node_modules/leaflet.coordinates/dist/Leaflet.Coordinates-0.1.5.src.js"></script>
+
+  <script src="./node_modules/leaflet/dist/leaflet.js"></script>
+  <script src="./node_modules/jquery/dist/jquery.js"></script>
+  <script src="./node_modules/leaflet-velocity/dist/leaflet-velocity.js"></script>
+  <script src="./node_modules/leaflet.coordinates/dist/Leaflet.Coordinates-0.1.5.src.js"></script>
+  <script src="./node_modules/leaflet-timedimension/dist/leaflet.timedimension.src.withlog.js"></script>
+
  <style>
    
   </style>
@@ -18,7 +22,9 @@
 <body>
   <div id="map"></div>
   <script type="text/javascript" src="mapInit.js"></script>
+  <script type="text/javascript" src="ajax-fetch-json.js"></script>
   <script type="text/javascript" src="fad_plotting.js"></script>
   <script type="text/javascript" src="fish_plotting.js"></script>
   <script type="text/javascript" src="velocity.js"></script>
+  <script type="text/javascript" src="temperature_mapping.js"></script>
 </body>
