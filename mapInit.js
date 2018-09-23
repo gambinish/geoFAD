@@ -1,7 +1,18 @@
 function initDemoMap(){
     //stereographic projection
 
-    var map = L.map('map', {maxZoom: 13, minZoom: 1, zoomDelta: 0.25, zoomSnap: 0, maxBounds: [[-180, -270], [180,270]]});
+    var map = L.map('map', {
+        maxZoom: 13,
+        minZoom: 1,
+        zoomDelta: 0.25,
+        zoomSnap: 0,
+        maxBounds: [[-180, -270], [180,270]],
+        fullscreenControl: true,
+        timeDimension: true,
+        timeDimensionControl: true,
+        timeDimensionOptions: {},
+
+    });
     const satelliteMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
                                 {attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
     });
@@ -18,7 +29,7 @@ function initDemoMap(){
     var drawnItems = new L.featureGroup().addTo(map);
     var layerControl = L.control.layers({
         'Esri World Imagery ': satelliteMap.addTo(map),
-        'Google': googleMap.addTo(map), 
+        'Google': googleMap.addTo(map),
         'Ocean basemap': Esri_OceanBasemap.addTo(map),
         },
         { 'draw layer': drawnItems },
@@ -37,12 +48,12 @@ function initDemoMap(){
 
   return {
     map: map,
-    layerControl: layerControl
+    layerControl: layerControl,
   };
 }
 
 
-var mapStuff = initDemoMap();
-  var layerControl = mapStuff.layerControl
-  var map = mapStuff.map;
-  map.setView([20,-155], 7)
+const mapStuff = initDemoMap();
+const layerControl = mapStuff.layerControl
+const map = mapStuff.map;
+map.setView([20,-155], 7)

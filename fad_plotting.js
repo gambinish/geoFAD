@@ -1,13 +1,5 @@
 
 $(function(){
-    $.ajaxSetup({beforeSend: function(xhr){
-            if (xhr.overrideMimeType)
-            {
-                xhr.overrideMimeType("application/json");
-            }
-        }
-    });
-
     $.getJSON('FAD.json',function(data){
         console.log('successful loading fad.json');
         $.each(data.features, function(i, feature) {
@@ -19,7 +11,5 @@ $(function(){
             }
         })
 
-    }).error(function(){
-        console.log('error');
-    });
+    })
 });

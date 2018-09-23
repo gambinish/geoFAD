@@ -1,13 +1,5 @@
 
 $(function(){
-    $.ajaxSetup({beforeSend: function(xhr){
-            if (xhr.overrideMimeType)
-            {
-                xhr.overrideMimeType("application/json");
-            }
-        }
-    });
-
     $.getJSON('fish.json',function(data){
         console.log('successful loading fish.json');
         $.each(data.fish, function(i, fish) {
@@ -18,7 +10,5 @@ $(function(){
 
         })
 
-    }).error(function(){
-        console.log('error');
-    });
+    })
 });
