@@ -8,7 +8,7 @@ function initDemoMap(){
         maxBounds: [[-180, -270], [180,270]],
         fullscreenControl: true,
         timeDimension: true,
-        timeDimensionControl: true,
+        timeDimensionControl: false,
         timeDimensionOptions: {},
 
     });
