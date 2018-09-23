@@ -1,4 +1,4 @@
-(function() {
+(function () {
     var tempLayer = new L.layerGroup()
 
     var testWMS = "https://ogcie.iblsoft.com/metocean/wms"
@@ -31,7 +31,7 @@
     });
 
 
-    testLegend.onAdd = function(map) {
+    testLegend.onAdd = function (map) {
         var src = testWMS + "?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&LAYER=gfs-temperature-isbl&STYLE=default";
         var div = L.DomUtil.create('div', 'info legend');
         div.innerHTML +=

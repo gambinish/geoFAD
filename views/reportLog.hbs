@@ -2,10 +2,13 @@
   {{#each reports}}
   <h3>name: {{ name }}, description: {{ description }}, primary gear: {{ primaryGear }}, fishing from: {{ fishingFrom
     }}, pier dock: {{ pierDock }}, target fish: {{ targetFish }}, debris: {{ debrisPresent}}, target fish: {{
-    targetFish }}</h3>
+    targetFish }} <br><br><a href={{catchImg}}>CATCH IMAGE</a><br><br></h3>
   <button class="buttonClass">show message</button>
   <h4 id="block">message: {{ message }}</h4>
   <hr>
   {{/each}}
+
   <br> {{> footer}}
 </div>
+
+{{!-- <a href='/item/{{id}}'>{{name}}</a> --}}

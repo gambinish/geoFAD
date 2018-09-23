@@ -57,8 +57,8 @@ app.get('/', function (req, res) {
 
 app.get('/fad/:id', (req, res) => {
   let { id } = req.params;
-  let temp = id;
-  console.log('temp: ', temp);
+  // let temp = id;
+  // console.log('temp: ', temp);
 
   let FAD_detail = DS_Inv.getItemById(id);
 
@@ -74,7 +74,7 @@ app.post('/login', (req, res) => {
 })
 
 app.post('/fad', (req, res) => {
-  console.log('report body: ', req.body)
+  // console.log('report body: ', req.body)
   const report = req.body;
   RL_Inv.add(report);
   res.redirect('/reportLogs')
