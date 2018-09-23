@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const request = require('request');
+const formidable = require('formidable');
+const fs = require('fs')
+const path = require('path');
 
 const fishData = require('./data/fish.json')
 const velocityData = require('./data/aviso.json')
@@ -73,9 +76,25 @@ app.post('/login', (req, res) => {
   res.redirect('/fad');
 })
 
-app.post('/fad', (req, res) => {
+app.post('/fad',  (req, res) => {
   // console.log('report body: ', req.body)
   const report = req.body;
+  console.log('form submitted')
+  const form = new formidable.IncomingForm();
+  
+  form.parse(req);
+
+  form.on('fileBegin', (name, file) => {
+    file.path = __dirname + '/images/' + file.name;
+  })
+  
+  form.on('file', (name,file)=>{
+    console.log('Uploaded', + file.name)
+  })
+ 
+
+    
+
   RL_Inv.add(report);
   res.redirect('/reportLogs')
 })
