@@ -8,6 +8,7 @@
     crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
     crossorigin=""></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 </head>
 
 <body>
@@ -17,23 +18,27 @@
 
 <script>
 
-  // Set center location coords:
-  let coords = [21.284, -157.684];
+  // Set center location startingCord:
+  let startingCord = [19.5, -155.6];
+
   // Set zoom level:
-  let zoom = 13;
+  let zoom = 8;
   // Set free map attribution for demo purposes:
   let attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   // Set map link resource:
   let mapResourceUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   // initialize map
-  let mymap = L.map('mapid').setView(coords, zoom);
+  let mymap = L.map('mapid').setView(startingCord, zoom);
   // add tile layer - if your map is every greyed out - its because you have not added a tile layer
   // chrome has issue with map showing up until scroll or resize of window - known issue
   L.tileLayer(mapResourceUrl, { attribution: attribution }).addTo(mymap);
   // add a marker
-  L.marker(coords).addTo(mymap)
-    .bindPopup('Aloha!')
-    .openPopup();
+
+  // ADD STARTING MARKER
+  L.marker(startingCord).addTo(mymap)
+      .bindPopup('Aloha!')
+      .openPopup();
+
 
   // Set circle design options:
   let circleDesignOptions = {
@@ -42,15 +47,17 @@
     weight: 5
   };
   // add a circle
-  L.circle(coords, circleDesignOptions).addTo(mymap);
+  L.circle(startingCord, circleDesignOptions).addTo(mymap);
 
 
 </script>
+<script type="text/javascript" src="fad_plotting.js"></script>
+<script type="text/javascript" src="fish_plotting.js"></script>
 
 <style>
   #mapid {
-    height: 480px;
-    width: 480px;
+    height: 800px;
+    width: 800px;
   }
 </style>
 
