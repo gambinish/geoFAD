@@ -14,7 +14,7 @@ $(function () {
             if (feature.geometry != null) {
                 L.marker(feature.geometry.coordinates.reverse())
                     .addTo(map)
-                    .bindPopup(feature.properties.name + '<br><a href="localhost:5000/fad" target="blank">FORM</a>' + `<br><a href="localhost:5000/fad/${feature.properties.objectid}" target="blank">INFO</a>`)
+                    .bindPopup(feature.properties.name + '<br><a href="localhost:5000/fad" target="blank">FORM</a>' + `<br><a href="localhost:5000/fad/${feature.properties.objectid}?${feature.properties.latitude}&${feature.properties.longitude}" target="blank">INFO</a>`)
                     .openPopup();
             }
         })

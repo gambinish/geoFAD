@@ -21,15 +21,26 @@ app.get('/fad', (req, res) => {
 })
 
 app.get('/fad/:id', (req, res) => {
-  res.render('detail')
-  const { id } = req.params;
-  console.log('FAD-id: ', id);
-  // const item = DS_Inv.getItemById(id);
+
+  // console.log('req', req)
+  let { id } = req.params;
+  console.log('id', id)
+  console.log('req.query', req.query)
+  let coords = req.query;
+  console.log('coords', coords);
+
+  let FAD_detail = DS_Inv.getItemById(id);
+  console.log('FAD_detail', FAD_detail);
+
+  // const { id } = req.params;
+  // console.log('FAD-id: ', id);
+
   // console.log(item);
   // temp = item;
   // console.log('temp', temp)
   // console.log('item.id', item.id);
   // res.render('detail', item)
+  res.render('detail', coords)
 })
 
 app.get('/login', (req, res) => {
