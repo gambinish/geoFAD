@@ -20,8 +20,8 @@ $(function(){
     $.getJSON('./data/FAD.json',function(data){
         $.each(data.features, function(i, feature) {
             if (feature.geometry != null) {
-                var marker = L.marker(feature.geometry.coordinates.reverse(), {icon: fadIcon}).bindPopup(feature.properties.name).openPopup();
-                marker.addTo(map)
+                var marker = L.marker(feature.geometry.coordinates.reverse(), {icon: fadIcon}).bindPopup(feature.properties.name)
+                marker.openPopup();
                 fadLayer.addLayer(marker)
             }
         })
