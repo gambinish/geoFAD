@@ -1,4 +1,4 @@
-const geojsonFeature = {
+const fadPoints = {
     "type":"FeatureCollection",
     "features":[
        {
