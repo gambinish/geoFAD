@@ -12,7 +12,7 @@ $(function(){
         console.log('successful loading fish.json');
         $.each(data.fish, function(i, fish) {
             L.marker([fish.latitude, fish.longitude])
-                .addTo(mymap)
+                .addTo(map)
                 .bindPopup(fish.name.join())
                 .openPopup();
 

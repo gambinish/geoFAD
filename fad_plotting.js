@@ -8,12 +8,12 @@ $(function(){
         }
     });
 
-    $.getJSON('FAD_Fish_Aggregating_Devices.json',function(data){
+    $.getJSON('FAD.json',function(data){
         console.log('successful loading fad.json');
         $.each(data.features, function(i, feature) {
             if (feature.geometry != null) {
                 L.marker(feature.geometry.coordinates.reverse())
-                    .addTo(mymap)
+                    .addTo(map)
                     .bindPopup(feature.properties.name)
                     .openPopup();
             }
