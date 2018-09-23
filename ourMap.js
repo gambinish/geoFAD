@@ -66,6 +66,13 @@ $.getJSON('aviso.json', function (data) {
   map.addLayer(velocityLayer1); //Default display when page loads
 });
 
+//FAD COORDINATES VIA GEOJSON DATA
+$.getJSON('FAD.json', (data)=>{
+    L.GeoJSON(data).addTo(map)
+})
+
+
+
 // const map = L.map('map').setView([21.3069, -157.8583], 10);
 // L.tileLayer('http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.png', {
 //   attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

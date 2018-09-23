@@ -1,4 +1,5 @@
-const fadPoints = {
+
+    {
     "type":"FeatureCollection",
     "features":[
        {
