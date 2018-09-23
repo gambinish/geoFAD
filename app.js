@@ -20,52 +20,48 @@ app.use(express.static('.'));
 const Inventory = require('./db/DS_Inventory.js')
 const DS_Inv = new Inventory();
 
+const ReportLog = require('./db/RL_Inventory.js')
+const RL_Inv = new ReportLog;
+
 app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
 app.use(cors())
 app.use(bp.urlencoded({ extended: false }))
 
+let temp = null;
 
 app.get('/fad', (req, res) => {
   res.render('form')
 });
 
+app.get('/reportLogs', (req, res) => {
+  const reports = RL_Inv.all();
+  res.render('reportLog', { reports })
+})
+
 app.get("/proxy", (req, res) => {
   const downloading = req.query.url;
   if (downloading.includes("GetCapabilities")) {
-      request(downloading, function (error, response, body) {
-          if (!error && response.statusCode === 200) {
-              res.header("Content-Type", response.headers["content-type"])
-              res.send(body)
-          }
-      })
+    request(downloading, function (error, response, body) {
+      if (!error && response.statusCode === 200) {
+        res.header("Content-Type", response.headers["content-type"])
+        res.send(body)
+      }
+    })
   }
 });
 
-app.get('/', function(req, res) {
-    res.sendFile('index.html');
+app.get('/', function (req, res) {
+  res.sendFile('index.html');
 });
 
 app.get('/fad/:id', (req, res) => {
-
-  // console.log('req', req)
   let { id } = req.params;
-  console.log('id', id)
-  console.log('req.query', req.query)
-  let coords = req.query;
-  console.log('coords', coords);
+  let temp = id;
+  console.log('temp: ', temp);
 
   let FAD_detail = DS_Inv.getItemById(id);
-  console.log('FAD_detail', FAD_detail);
 
-  // const { id } = req.params;
-  // console.log('FAD-id: ', id);
-
-  // console.log(item);
-  // temp = item;
-  // console.log('temp', temp)
-  // console.log('item.id', item.id);
-  // res.render('detail', item)
   res.render('detail', FAD_detail)
 })
 
@@ -78,10 +74,10 @@ app.post('/login', (req, res) => {
 })
 
 app.post('/fad', (req, res) => {
-  const item = req.body;
-  // console.log(item);
-  DS_Inv.add(item);
-  res.redirect('/')
+  console.log('report body: ', req.body)
+  const report = req.body;
+  RL_Inv.add(report);
+  res.redirect('/reportLogs')
 })
 
 app.get('/fish', (req, res) => {

@@ -1,18 +1,16 @@
-<h1>DETAIL</h1>
+<div class="detailWrapper">
+  <h1>FAB NAME: {{ name }}</h1>
+  <br>
+  <h2>LATITUDE: {{ latitude }}</h2>
+  <h2>LOGITUDE: {{ longitude }}</h2>
+  <br>
+  <h3>NEAREST ISLAND: {{ island }}</h3>
+  <br>
 
-<script>
+  <a href="/fad"><button class="buttonClass">Submit Report</button></a>
+  <br>
+  <a href="/reportLogs"><button class="buttonClass">View Logs</button></a>
 
+  <br><br> {{> footer}}
 
-
-</script>
-
-<form action="/detail" method="post">
-  <label>
-    <input type="text" name="name" placeholder="NAME" id="field1">
-  </label>
-  <br><br>
-  <label>
-    <input type="password" name="description" placeholder="PASSWORD" , id="">
-  </label>
-  <br><br>
-  <input type="submit" value="Submit">
+</div>

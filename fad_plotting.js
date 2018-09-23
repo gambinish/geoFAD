@@ -9,22 +9,22 @@ $(function () {
 
     var fadIcon = L.icon({
         iconUrl: './images/dot_yellow.png',
-        iconSize:     [12, 12], 
-        iconAnchor:   [0, 0],
-        popupAnchor:  [6, 6]
-      });
+        iconSize: [12, 12],
+        iconAnchor: [0, 0],
+        popupAnchor: [6, 6]
+    });
 
-    var fadLayer = new L.layerGroup(); 
+    var fadLayer = new L.layerGroup();
 
-    $.getJSON('./data/FAD.json',function(data){
-        $.each(data.features, function(i, feature) {
+    $.getJSON('./data/FAD.json', function (data) {
+        $.each(data.features, function (i, feature) {
             if (feature.geometry != null) {
-                var marker = L.marker(feature.geometry.coordinates.reverse(), {icon: fadIcon}).bindPopup(feature.properties.name + '<br><a href="/fad" target="blank">FORM</a>' + `<br><a href="/fad/${feature.properties.objectid}?${feature.properties.latitude}&${feature.properties.longitude}" target="blank">INFO</a>`)
+                var marker = L.marker(feature.geometry.coordinates.reverse(), { icon: fadIcon }).bindPopup(feature.properties.name + '<br>' + `<a href="/fad/${feature.properties.objectid}?${feature.properties.latitude}&${feature.properties.longitude}" target="blank">INFO</a>`)
                 fadLayer.addLayer(marker)
             }
         })
     })
-    htmlFad='<font color="red">Fad layer</font>'
+    htmlFad = '<font color="red">Fad layer</font>'
     layerControl.addOverlay(fadLayer, htmlFad);
     map.addLayer(fadLayer);
 });
