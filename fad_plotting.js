@@ -12,10 +12,16 @@ $(function(){
         console.log('successful loading fad.json');
         $.each(data.features, function(i, feature) {
             if (feature.geometry != null) {
-                L.marker(feature.geometry.coordinates.reverse())
+                L.movingMarker(feature.geometry.coordinates.reverse(),{
+                    destinations:[{
+                        
+
+                    }]
                     .addTo(map)
                     .bindPopup(feature.properties.name)
-                    .openPopup();
+                    .openPopup()
+                })
+                  
             }
         })
 
