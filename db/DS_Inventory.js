@@ -32,7 +32,7 @@ class Inventory {
   add(item) {
     this._storage.push(item);
     this._count++;
-    console.log(this._storage)
+    // console.log(this._storage)
     return item.id;
   }
 }
