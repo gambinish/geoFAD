@@ -211,19 +211,19 @@
       }
     }];
 
-  // fad_BI.forEach(function (element) {
-  //   console.log(element.properties.name)
+  fad_BI.forEach(function (element) {
+    console.log(element.properties.name)
 
-  //   L.marker(element.properties.name).addTo(mymap)
-  //     .bindPopup(element.properties.name);
+    // L.marker([element.properties.longitude, element.properties.latitude]).addTo(mymap)
+    //   .bindPopup(element.properties.name)
+    //   .openPopup();
+  })
 
-
-  // })
-
+  // L.marker([50.5, 30.5]).addTo(map);
 
 
   // Set zoom level:
-  let zoom = 13;
+  let zoom = 8;
   // Set free map attribution for demo purposes:
   let attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   // Set map link resource:
@@ -242,8 +242,10 @@
 
   // ADD FAD MARKERS TO MAP
 
+
+
   L.marker(FAD1).addTo(mymap)
-    .bindPopup('FAD1')
+    .bindPopup('<a href="<a href="/FAD1_detail" target="blank">FAD1-Detail</a>')
     .openPopup();
 
   L.marker(FAD2).addTo(mymap)
