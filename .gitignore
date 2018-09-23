@@ -23,5 +23,5 @@ yarn-error.log*
 
 config.js
 
-
 bison_parser/
+.idea/
