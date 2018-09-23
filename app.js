@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
-
+const fishData = require('./data/fish.json')
+const velocityData = require('./data/aviso.json')
+const fadData = require('./data/FAD.json')
+const cors = require('cors')
 const bp = require('body-parser');
 const exphbs = require('express-handlebars');
 
@@ -11,12 +14,11 @@ const DS_Inv = new Inventory();
 
 app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
-
+app.use(cors())
 app.use(bp.urlencoded({ extended: false }))
 
 
 app.get('/fad', (req, res) => {
-  // res.json('FAD1-DETAIL');
   res.render('form')
 })
 
@@ -58,4 +60,16 @@ app.post('/fad', (req, res) => {
   res.redirect('http://127.0.0.1:8080/')
 })
 
-app.listen(PORT);
+app.get('/fish', (req, res) => {
+  res.json(fishData)
+})
+
+app.get('/velocity', (req, res) => {
+  res.json(velocityData)
+})
+
+app.get('/fadData', (req, res) => {
+  res.json(fadData)
+})
+
+app.listen(PORT)
