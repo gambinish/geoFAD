@@ -3,12 +3,13 @@
 
     var testWMS = "https://ogcie.iblsoft.com/metocean/wms"
 
-    tempLayer.addLayer(L.tileLayer.wms(testWMS, {
-        layers: 'foreground-lines',
-        format: 'image/png',
-        transparent: true,
-        crs: L.CRS.EPSG4326
-    }));
+    /****** This is the grid  **************/
+    // tempLayer.addLayer(L.tileLayer.wms(testWMS, {
+    //     layers: 'foreground-lines',
+    //     format: 'image/png',
+    //     transparent: true,
+    //     crs: L.CRS.EPSG4326
+    // }));
 
     var testLayer = L.tileLayer.wms(testWMS, {
         layers: 'gfs-temperature-isbl', // isobaric levels, or -agl for above ground levels
