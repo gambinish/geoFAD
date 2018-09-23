@@ -2,9 +2,9 @@
 $(function () {
     var fishIcon = L.icon({
         iconUrl: './images/fish.png',
-        iconSize: [30, 30],
+        iconSize: [20, 20],
         iconAnchor: [0, 0],
-        popupAnchor: [15, 15]
+        popupAnchor: [10, 10]
     });
 
     var fishLayer = new L.layerGroup();
