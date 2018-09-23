@@ -40,7 +40,7 @@ app.get('/fad/:id', (req, res) => {
   // console.log('temp', temp)
   // console.log('item.id', item.id);
   // res.render('detail', item)
-  res.render('detail', coords)
+  res.render('detail', FAD_detail)
 })
 
 app.get('/login', (req, res) => {

@@ -3,7 +3,7 @@ class Inventory {
     this._count = 1;
     this._storage = [];
     this.add({
-      id: 4,
+      id: 3,
       name: "dataset-1",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet quam a lacus egestas fringilla et in ipsum. Cras laoreet ipsum placerat eros accumsan commodo. Vivamus tempor enim a pellentesque euismod. Quisque malesuada auctor augue ac eleifend. Fusce nec facilisis risus. Pellentesque vulputate vestibulum tortor sed pharetra. Nullam at ipsum sit amet leo luctus egestas nec et nisi. Mauris eget metus et nisi maximus maximus.",
       gear: "hook",
